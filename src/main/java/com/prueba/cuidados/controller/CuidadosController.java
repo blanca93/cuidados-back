@@ -1,7 +1,40 @@
 package com.prueba.cuidados.controller;
 
-import org.springframework.stereotype.Controller;
+import com.prueba.cuidados.controller.converter.CuidadosDtoConverter;
+import com.prueba.cuidados.controller.dto.CuidadoDto;
+import com.prueba.cuidados.controller.dto.PersonaDto;
+import com.prueba.cuidados.service.CuidadosService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import javax.validation.Valid;
+import java.util.List;
+
+@RestController
+@RequestMapping("api")
+@RequiredArgsConstructor
 public class CuidadosController {
+
+    private final CuidadosService service;
+    private final CuidadosDtoConverter converter;
+
+    @GetMapping("cuidados")
+    public List<CuidadoDto> getAllCuidados() {
+        return converter.cuidadoToCuidadoDto(service.getAllCuidados());
+    }
+
+    @PostMapping("cuidados")
+    public void saveCuidado(@Valid @RequestBody final CuidadoDto cuidado) {
+        service.saveCuidado(converter.cuidadoDtoToCuidado(cuidado));
+    }
+
+    @GetMapping("personas")
+    public List<PersonaDto> getAllPersonas() {
+        return converter.personaToPersonaDto(service.getAllPersonas());
+    }
+
+    @PostMapping("personas")
+    public void savePersona(@RequestBody final String persona) {
+        service.savePersona(persona);
+    }
 }
