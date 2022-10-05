@@ -4,6 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.extern.jackson.Jacksonized;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Data
@@ -11,12 +13,16 @@ import java.time.LocalDateTime;
 @Builder
 public class CuidadoDto {
 
+    @NotNull
     private Integer parentCode;
     private String parent;
+    @NotNull
     private Integer caretakerCode;
     private String caretaker;
+    @NotNull
     private LocalDateTime beginning;
     // En minutos
+    @NotNull
     private Integer duration;
     private String description;
 

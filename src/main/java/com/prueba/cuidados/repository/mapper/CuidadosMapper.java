@@ -16,7 +16,7 @@ public interface CuidadosMapper {
             @Result(property = "duration", column = "duration"),
             @Result(property = "description", column = "description")
     })
-    @Select("SELECT parent, caretaker, beginning, duration, description FROM cuidados")
+    @Select("SELECT parent, caretaker, beginning, duration, description FROM cuidados ORDER BY beginning DESC")
     List<CuidadoEntity> getAllCuidados();
 
     @Insert("INSERT INTO cuidados (parent, caretaker, beginning, duration, description) VALUES (#{parentCode}, #{caretakerCode}, #{beginning}, #{duration}, #{description})")

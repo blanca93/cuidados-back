@@ -1,7 +1,9 @@
 package com.prueba.cuidados.controller.converter;
 
+import com.prueba.cuidados.controller.dto.BalanceDto;
 import com.prueba.cuidados.controller.dto.CuidadoDto;
 import com.prueba.cuidados.controller.dto.PersonaDto;
+import com.prueba.cuidados.service.domain.Balance;
 import com.prueba.cuidados.service.domain.Cuidado;
 import com.prueba.cuidados.service.domain.Persona;
 import org.mapstruct.Mapper;
@@ -17,4 +19,6 @@ public interface CuidadosDtoConverter {
     Cuidado cuidadoDtoToCuidado(CuidadoDto cuidado);
 
     List<PersonaDto> personaToPersonaDto(List<Persona> allPersonas);
+
+    List<BalanceDto> balanceToBalanceDto(List<Balance> balance);
 }

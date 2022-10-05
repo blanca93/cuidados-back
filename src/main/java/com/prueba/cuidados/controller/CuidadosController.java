@@ -1,6 +1,7 @@
 package com.prueba.cuidados.controller;
 
 import com.prueba.cuidados.controller.converter.CuidadosDtoConverter;
+import com.prueba.cuidados.controller.dto.BalanceDto;
 import com.prueba.cuidados.controller.dto.CuidadoDto;
 import com.prueba.cuidados.controller.dto.PersonaDto;
 import com.prueba.cuidados.service.CuidadosService;
@@ -21,6 +22,11 @@ public class CuidadosController {
     @GetMapping("cuidados")
     public List<CuidadoDto> getAllCuidados() {
         return converter.cuidadoToCuidadoDto(service.getAllCuidados());
+    }
+
+    @GetMapping("balance")
+    public List<BalanceDto> getBalance() {
+        return converter.balanceToBalanceDto(service.getBalance());
     }
 
     @PostMapping("cuidados")
