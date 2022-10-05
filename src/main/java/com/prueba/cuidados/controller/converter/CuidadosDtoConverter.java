@@ -7,7 +7,6 @@ import com.prueba.cuidados.service.domain.Balance;
 import com.prueba.cuidados.service.domain.Cuidado;
 import com.prueba.cuidados.service.domain.Persona;
 import org.mapstruct.Mapper;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
