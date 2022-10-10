@@ -22,6 +22,10 @@ public class CuidadosConstants {
     private static final Integer caretakerCode = 2;
     private static final LocalDateTime beginning = LocalDateTime.parse("2018-10-10T11:25");
     private static final Integer duration = 90;
+    private static final String ADA = "Ada Lovelace";
+    private static final String ALAN = "Alan Turing";
+    private static final String ANGELA = "Angela Ruiz Robles";
+    private static final String HEDY = "Hedy Lamarr";
 
 
     public static final Cuidado cuidado = Cuidado.builder().parent(parentName).parentCode(parentCode).caretaker(caretakerName)
@@ -57,5 +61,25 @@ public class CuidadosConstants {
     public static final BalanceDto balanceDto1 = BalanceDto.builder().person(parentName).time((-1) * duration).build();
     public static final BalanceDto balanceDto2 = BalanceDto.builder().person(caretakerName).time(duration).build();
     public static final List<BalanceDto> balancesDto = Arrays.asList(balanceDto1, balanceDto2);
+
+    // getSaldo
+    public static final Balance balanceA = Balance.builder().person(ADA).time(-90).build();
+    public static final Balance balanceB = Balance.builder().person(ALAN).time(-60).build();
+    public static final Balance balanceC = Balance.builder().person(ANGELA).time(120).build();
+    public static final Balance balanceD = Balance.builder().person(HEDY).time(30).build();
+    public static final List<Balance> balancesExercise1 = Arrays.asList(balanceA, balanceB, balanceC, balanceD);
+
+    public static final Cuidado cuidado1 = Cuidado.builder().caretaker(ADA).parent(ANGELA).duration(90).build();
+    public static final Cuidado cuidado2 = Cuidado.builder().caretaker(ALAN).parent(ANGELA).duration(30).build();
+    public static final Cuidado cuidado3 = Cuidado.builder().caretaker(ALAN).parent(HEDY).duration(30).build();
+    public static final List<Cuidado> cuidadosExercise1 = Arrays.asList(cuidado1, cuidado2, cuidado3);
+
+    public static final Balance balanceE = Balance.builder().person(ADA).time(-120).build();
+    public static final List<Balance> balancesExercise2 = Arrays.asList(balanceB, balanceC, balanceD, balanceE);
+
+    public static final Cuidado cuidadoA = Cuidado.builder().caretaker(ADA).parent(ANGELA).duration(120).build();
+    public static final Cuidado cuidadoB = Cuidado.builder().caretaker(ALAN).parent(HEDY).duration(30).build();
+    public static final Cuidado cuidadoC = Cuidado.builder().caretaker(ALAN).duration(30).build();
+    public static final List<Cuidado> cuidadosExercise2 = Arrays.asList(cuidadoA, cuidadoB, cuidadoC);
 
 }

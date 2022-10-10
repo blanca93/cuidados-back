@@ -17,6 +17,7 @@ class CuidadosServiceTest {
 
     private final CuidadosRepository repository = mock(CuidadosRepository.class);
     private final CuidadosService sut = new CuidadosService(repository);
+    CuidadosService serviceMock = spy(sut);
 
     @Test
     void getAllCuidadosShouldCallRepositoryAndFillInNames() {
@@ -70,6 +71,24 @@ class CuidadosServiceTest {
         verify(repository).getAllPersonas();
     }
 
+    @Test
+    void getSaldoShouldReturnSolution1() {
+        doReturn(balancesExercise1).when(serviceMock).getBalance();
 
+        List<Cuidado> result = serviceMock.getSaldo();
+
+        assertThat(result).isEqualTo(cuidadosExercise1);
+        verify(serviceMock).getBalance();
+    }
+
+    @Test
+    void getSaldoShouldReturnSolution2() {
+        doReturn(balancesExercise2).when(serviceMock).getBalance();
+
+        List<Cuidado> result = serviceMock.getSaldo();
+
+        assertThat(result).isEqualTo(cuidadosExercise2);
+        verify(serviceMock).getBalance();
+    }
 
 }

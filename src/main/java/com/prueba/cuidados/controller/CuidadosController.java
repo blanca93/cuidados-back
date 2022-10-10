@@ -29,6 +29,11 @@ public class CuidadosController {
         return converter.balanceToBalanceDto(service.getBalance());
     }
 
+    @GetMapping("saldo-deudas")
+    public List<CuidadoDto> getSaldo() {
+        return converter.cuidadoToCuidadoDto(service.getSaldo());
+    }
+
     @PostMapping("cuidados")
     public void saveCuidado(@Valid @RequestBody final CuidadoDto cuidado) {
         service.saveCuidado(converter.cuidadoDtoToCuidado(cuidado));
